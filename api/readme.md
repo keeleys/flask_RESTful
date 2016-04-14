@@ -14,12 +14,23 @@ DELETE    |  http://[hostname]/todo/api/v1.0/tasks/[task_id] | 删除任务
 ```bash
 python app.py
 ```
+## auth
 
+* 新增用户
+```
+curl -i -H "Content-Type: application/json" -X POST -d '{"username":"keeley","password":"123456"}' http://localhost:5000/api/users
+```
+* 获取token
+```
+curl  http://localhost:5000/api/token -u keeley:123456
+```
 ## API访问
 
 * 查询所有tasks
 ```bash
 curl -i http://localhost:5000/todo/api/v1.0/tasks
+# 加密访问
+curl -u eyJhbGciOiJIUzI1NiIsImV4cCI6MTQ2MDYxNDUxMywiaWF0IjoxNDYwNjEzOTEzfQ.eyJpZCI6MX0.B78liqMQ2lnEsrOqPCnDaGC83aXKavpSjuPrIWH3WwU:none -i http://localhost:5000/todo/api/v1.0/tasks
 ```
 
 * 根据ID查询task

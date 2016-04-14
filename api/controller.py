@@ -3,7 +3,6 @@
 # Created by tianjun
 
 from flask import Flask, jsonify, abort, request, make_response, url_for
-
 from api import app
 from api.auth import auth
 
